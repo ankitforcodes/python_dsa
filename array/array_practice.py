@@ -72,4 +72,3 @@ print(my_list)
 # Get range of elements at an index
 range_list = my_array[1:5]
 print(range_list)
-print(my_array)
