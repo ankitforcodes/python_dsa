@@ -4,10 +4,8 @@ peak = my_list[0]
 index = 0
 output = []
 
-for x in range(len(my_list)):
-	if x == 0:
-		continue
-	elif (my_list[x]*my_list[x-1] > 0):
+for x in range(1,len(my_list)):
+	if (my_list[x]*my_list[x-1] > 0):
 		if peak < 0 and my_list[x] < peak:
 			peak = my_list[x]
 			index = x
