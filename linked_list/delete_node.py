@@ -59,6 +59,25 @@ class SingleLinkedList:
 					temp_node = temp_node.next
 
 			return "Not found"
+
+	def delete_node(self,value):
+		if self.head == self.tail and self.head.value == value:
+			self.head = None
+			self.tail = None
+		else:
+			temp_node = self.head
+			end_node = None
+			while temp_node is not None:
+				if temp_node.next.value == value:
+					end_node = temp_node.next.next
+					break
+				else:
+					temp_node = temp_node.next
+
+			temp_node.next = end_node
+
+
+
 			
 
 
@@ -70,4 +89,7 @@ my_ll.insert(30,2)
 my_ll.insert(40,3)
 my_ll.insert(50,4)
 my_ll.insert(60,5)
-print(my_ll.find_node(60))
+print(my_ll.traversal())
+print("####")
+my_ll.delete_node(30)
+print(my_ll.traversal())
