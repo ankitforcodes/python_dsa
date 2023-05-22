@@ -60,21 +60,30 @@ class SingleLinkedList:
 
 			return "Not found"
 
-	def delete_node(self,value):
-		if self.head == self.tail and self.head.value == value:
-			self.head = None
-			self.tail = None
+	def delete_node_by_index(self,index):
+		if self.head is None:
+			print("Nothing to delete")
 		else:
-			temp_node = self.head
-			end_node = None
-			while temp_node is not None:
-				if temp_node.next.value == value:
-					end_node = temp_node.next.next
-					break
+			if index == 0:
+				if self.head == self.tail:
+					self.head = None
+					self.tail = None
 				else:
-					temp_node = temp_node.next
+					self.head = self.head.next
+			elif index == -1:
+				if self.head == self.tail:
+					self.head = None
+					self.tail = None
+				else:
+					temp_node = self.head
+					while temp_node is not None:
+						if temp_node.next == self.tail:
+							break
+						else:
+							temp_node = temp_node.next
 
-			temp_node.next = end_node
+					self.tail = temp_node
+					temp_node.next = None
 
 
 
